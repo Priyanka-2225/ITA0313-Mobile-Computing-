@@ -1,0 +1,18 @@
+const $=s=>document.querySelector(s);
+const APP="HealthSelfCareApp";
+let mode="login",selectedSlot=null,selectedJob="";
+const features=[["Health Routine", "💧", "Build a hydration habit", "Keep water nearby and take regular sips during your day."], ["Health Routine", "🧘", "A mindful pause", "Sit comfortably, relax your shoulders, and gently notice your breathing."], ["Self-Care", "📓", "Try a gratitude journal", "Write down one small moment, person, or thing you appreciated today."], ["Self-Care", "🌙", "Create a bedtime routine", "Choose a calming activity and try to keep a regular sleep schedule."]];
+function setMode(m){mode=m;document.querySelectorAll("[data-mode]").forEach(b=>b.classList.toggle("active",b.dataset.mode===m));$("#authTitle").textContent=m==="login"?"Welcome back":"Create your account";$("#submitBtn").textContent=m==="login"?"Login":"Register";$("#nameWrap").classList.toggle("hidden",m==="login");$("#name").required=m==="register";$("#authMsg").textContent="";}
+document.querySelectorAll("[data-mode]").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+function getUsers(){return JSON.parse(localStorage.getItem(APP+"_users")||"{}");}
+$("#authForm").addEventListener("submit",e=>{e.preventDefault();const email=$("#email").value.trim().toLowerCase(),password=$("#password").value;let users=getUsers();if(mode==="register"){if(users[email]){$("#authMsg").textContent="This email is already registered.";return;}users[email]={name:$("#name").value.trim(),password};localStorage.setItem(APP+"_users",JSON.stringify(users));$("#authMsg").textContent="Registration successful. Please log in.";setMode("login");return;}if(!users[email]||users[email].password!==password){$("#authMsg").textContent="Account not found. Register first or check your details.";return;}sessionStorage.setItem(APP+"_current",email);showApp(users[email].name||email.split("@")[0]);});
+function showApp(name){$("#auth").classList.add("hidden");$("#dashboard").classList.remove("hidden");$("#logoutBtn").classList.remove("hidden");$("#userName").textContent=name;renderFeatures('all');}
+function logout(){sessionStorage.removeItem(APP+"_current");$("#dashboard").classList.add("hidden");$("#auth").classList.remove("hidden");$("#logoutBtn").classList.add("hidden");$("#authForm").reset();setMode("login");selectedSlot=null;}
+$("#logoutBtn").addEventListener("click",logout);
+
+function renderFeatures(filter){const grid=$("#featureGrid");if(!grid)return;grid.innerHTML="";features.filter(x=>filter==="all"||x[0]===filter).forEach(item=>{const card=document.createElement("article");card.className="tile";card.innerHTML=`<div class="emoji">${item[1]}</div><p><b>${item[0]}</b></p><h3>${item[2]}</h3><p>${item[3]}</p><button class="read">Read more →</button><p class="detail hidden">${item[3]}</p>`;card.querySelector(".read").addEventListener("click",e=>{const detail=card.querySelector(".detail");detail.classList.toggle("hidden");e.currentTarget.textContent=detail.classList.contains("hidden")?"Read more →":"Show less ↑";});grid.append(card);});}
+
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));renderFeatures(b.dataset.filter);}));
+$("#breathBtn").addEventListener("click",()=>{$("#breathMsg").textContent="Breathe in gently for 4 counts, pause if comfortable, then breathe out for 6 counts. Repeat at your own pace.";});
+
+const current=sessionStorage.getItem(APP+"_current");if(current){const users=getUsers();if(users[current])showApp(users[current].name||current.split("@")[0]);}
