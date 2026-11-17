@@ -1,0 +1,64 @@
+TASK 11.1 - Recommended hybrid design: planning parameters
+  Township area                  12 km^2
+  Available duplex channels      336
+  Illustrative cell radius       0.5 km
+  Cluster size N (baseline)      7  (i=2, j=1)
+  Channels per cell              48
+  Target blocking                2 %
+  Minimum SIR                    12 dB
+  Macro cells (area based)       19
+  Reference omni SIR (n=4)       18.66 dB
+
+  Expected performance of the baseline layer
+  capacity at 2 % blocking : 19 x 38.39 = 729.4 Erl  (~29177 subscribers)
+  simulated SIR, omni   N=7 n=4 : mean 27.91 dB, 5th pct 19.22 dB, outage 0.0000 (sigma=0) | outage 0.0897 (sigma=6 dB)
+  simulated SIR, sector N=7 n=4 : mean 32.70 dB, 5th pct 20.64 dB, outage 0.0000 (sigma=0) | outage 0.0341 (sigma=6 dB)
+  blocking of baseline at 20,000 users: 0.0000 ; at 30,000 users: 0.0264 ; at 100,000 users: 0.6394
+
+  Alternatives compared (idealised capacity, 100,000 subscribers = 2,500 Erl)
+  Option                             Capacity     Users @2%      Meets 2,500 Erl?
+  Fixed reuse N=7 (baseline)         729.4        29177          no
+  Fixed reuse N=4                    1378.0       55121          no
+  Fixed reuse N=3 (SIR 11.3 dB < 12) 1892.9       75714          no
+  N=7, 3 sectors x 16 ch             560.2        22408          no
+  Macro-micro, 1 uniform split (x4)  2917.8       116710         yes
+  Selective split f=0.5, 2 rounds    4559.0       182360         yes
+  Beyond 100,000 subscribers (idealised, uniform x4 per round, base 729.4 Erl):
+    after 0 round(s): 729 Erl ~ 29177 subscribers, 19 cells
+    after 1 round(s): 2918 Erl ~ 116710 subscribers, 76 cells
+    after 2 round(s): 11671 Erl ~ 466842 subscribers, 304 cells
+    after 3 round(s): 46684 Erl ~ 1867369 subscribers, 1216 cells
+    after 4 round(s): 186737 Erl ~ 7469477 subscribers, 4864 cells
+
+TASK 12.A - Impact analysis
+  event traffic         = 25,000 x 0.05 = 1250 Erl
+  event traffic density = 1250 / 1 km^2 = 1250 Erl/km^2
+  normal traffic        = 20,000 x 0.025 = 500 Erl ; density = 500 / 12 = 41.67 Erl/km^2
+  ratio event/normal density = 30.0 (about 30x)
+  event time share = 8 h per month of ~730 h = 1.1 %
+
+TASK 12.B - Original design under the event (assumptions stated)
+  assumption: stadium zone (1 km^2) is served by ceil(1/0.6495) = 2 original cells, 48 channels each, traffic split equally
+  offered per cell = 625.0 Erl -> Erlang-B blocking = 0.9233 ; carried traffic = 95.8 of 1250 Erl (7.7 %)
+  event cannot be carried by the entire licensed pool in one cell: channels for 1,250 Erl at 2 % = 1255  (> 336 available)
+  event traffic (1250 Erl) > whole-township baseline capacity (729.4 Erl)
+
+TASK 12.C - Temporary micro-cell / COW plan (cell count by reuse option)
+  N    ch/cell  A@2% (Erl)   cells needed  R (km)    reuse D (km)   SIR dB    SIR >= 12 dB
+  3    112      99.62        13            0.172     0.516          11.30     no
+  4    84       72.53        18            0.146     0.507          13.80     yes
+  7    48       38.39        33            0.108     0.495          18.66     yes
+  12   28       20.15        63            0.078     0.469          23.34     yes
+  With N=7 reuse: 33 temporary micro cells of ~108 m radius, each with 48 channels, reuse distance ~495 m.
+  Blocking vs number of identical temporary cells (48 ch each, 1,250 Erl split equally):
+     2 cells -> 625.0 Erl/cell -> blocking 0.9233
+    10 cells -> 125.0 Erl/cell -> blocking 0.6208
+    20 cells -> 62.5 Erl/cell -> blocking 0.2695
+    30 cells -> 41.7 Erl/cell -> blocking 0.0425
+    33 cells -> 37.9 Erl/cell -> blocking 0.0173
+    40 cells -> 31.2 Erl/cell -> blocking 0.0012
+
+TASK 12.D - Decision logic
+  retain unchanged   : blocking 0.92 in the stadium zone      -> rejected
+  temporary modify   : needs ~33 micro cells / COWs for 4 h, 2x per month -> RECOMMENDED
+  permanent redesign : would idle 98.9 % of the time as event capacity -> not justified by events alone
