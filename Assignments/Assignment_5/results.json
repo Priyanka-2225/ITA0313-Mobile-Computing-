@@ -1,0 +1,831 @@
+{
+ "b1b2": {
+  "tests": {
+   "T1_good": {
+    "enqueued": 30,
+    "deferred": 0,
+    "cancelled": 0,
+    "success": 30,
+    "peak": 3,
+    "notifications": 3,
+    "wasted_kb": 0,
+    "retries": 0,
+    "cleanups": 0,
+    "plaintext_uploads": 0,
+    "sent_kb": 4112,
+    "backlog": 0,
+    "final_battery": 81.7,
+    "crit_total": 3,
+    "crit_delivered": 3,
+    "crit_latency": 1.3,
+    "high_latency": 1.3,
+    "reasons": {},
+    "uploads_after_revoke": 0,
+    "log": [
+     "t=  0  net=GOOD doze=False batt= 90.0%  START item#22 prio=3 size=188KB",
+     "t=  0  net=GOOD doze=False batt= 90.0%  START item#12 prio=1 size=129KB",
+     "t=  4  net=GOOD doze=False batt= 89.5%  START item#10 prio=2 size=75KB",
+     "t=  4  net=GOOD doze=False batt= 89.5%  START item#5 prio=1 size=50KB",
+     "t=  5  net=GOOD doze=False batt= 89.3%  START item#8 prio=2 size=254KB"
+    ]
+   },
+   "T2_doze_lowbatt": {
+    "enqueued": 30,
+    "deferred": 28,
+    "cancelled": 24,
+    "success": 2,
+    "peak": 1,
+    "notifications": 2,
+    "wasted_kb": 0,
+    "retries": 0,
+    "cleanups": 24,
+    "plaintext_uploads": 0,
+    "sent_kb": 113,
+    "backlog": 4,
+    "final_battery": 11.9,
+    "crit_total": 2,
+    "crit_delivered": 2,
+    "crit_latency": 1.0,
+    "high_latency": null,
+    "reasons": {
+     "BATTERY": 4,
+     "DOZE": 24,
+     "EXPIRED": 24
+    },
+    "uploads_after_revoke": 0,
+    "log": [
+     "t= 27  net=GOOD doze=True  batt= 16.6%  START item#15 prio=3 size=36KB",
+     "t= 28  net=GOOD doze=True  batt= 16.5%  START item#7 prio=3 size=77KB"
+    ]
+   },
+   "T3_permission_revoked": {
+    "enqueued": 30,
+    "deferred": 0,
+    "cancelled": 24,
+    "success": 6,
+    "peak": 3,
+    "notifications": 0,
+    "wasted_kb": 666,
+    "retries": 0,
+    "cleanups": 24,
+    "plaintext_uploads": 0,
+    "sent_kb": 3906,
+    "backlog": 0,
+    "final_battery": 82.8,
+    "crit_total": 0,
+    "crit_delivered": 0,
+    "crit_latency": null,
+    "high_latency": 3.5,
+    "reasons": {
+     "PERMISSION": 24
+    },
+    "uploads_after_revoke": 0,
+    "log": [
+     "t=  0  net=GOOD doze=False batt= 90.0%  START item#4 prio=1 size=441KB",
+     "t=  1  net=GOOD doze=False batt= 89.6%  START item#22 prio=2 size=597KB",
+     "t=  1  net=GOOD doze=False batt= 89.5%  START item#16 prio=1 size=415KB",
+     "t=  4  net=GOOD doze=False batt= 88.6%  START item#2 prio=2 size=336KB",
+     "t=  4  net=GOOD doze=False batt= 88.6%  START item#6 prio=1 size=706KB"
+    ]
+   }
+  },
+  "std": {
+   "V1": {
+    "enqueued": 60,
+    "deferred": 36,
+    "cancelled": 14,
+    "success": 35,
+    "peak": 3,
+    "notifications": 8,
+    "wasted_kb": 1000,
+    "retries": 5,
+    "cleanups": 14,
+    "plaintext_uploads": 0,
+    "sent_kb": 17325,
+    "backlog": 11,
+    "final_battery": 15.2,
+    "crit_total": 8,
+    "crit_delivered": 8,
+    "crit_latency": 13.8,
+    "high_latency": 12.5,
+    "reasons": {
+     "DOZE_ENTERED": 3,
+     "DOZE": 22,
+     "NETWORK_LOST": 2,
+     "NETWORK": 1,
+     "BATTERY": 8,
+     "EXPIRED": 14
+    },
+    "uploads_after_revoke": 0
+   },
+   "V2": {
+    "enqueued": 60,
+    "deferred": 33,
+    "cancelled": 11,
+    "success": 38,
+    "peak": 3,
+    "notifications": 8,
+    "wasted_kb": 653,
+    "retries": 4,
+    "cleanups": 11,
+    "plaintext_uploads": 0,
+    "sent_kb": 16655,
+    "backlog": 11,
+    "final_battery": 15.7,
+    "crit_total": 8,
+    "crit_delivered": 8,
+    "crit_latency": 11.1,
+    "high_latency": 13.6,
+    "reasons": {
+     "WAIT_GOOD_LINK": 4,
+     "DOZE_ENTERED": 2,
+     "DOZE": 17,
+     "NETWORK_LOST": 2,
+     "NETWORK": 1,
+     "BATTERY": 7,
+     "EXPIRED": 11
+    },
+    "uploads_after_revoke": 0
+   }
+  },
+  "B2": {
+   "C": {
+    "V1": {
+     "enqueued": 60,
+     "deferred": 45,
+     "cancelled": 38,
+     "success": 22,
+     "peak": 3,
+     "notifications": 9,
+     "wasted_kb": 1906,
+     "retries": 6,
+     "cleanups": 38,
+     "plaintext_uploads": 0,
+     "sent_kb": 16208,
+     "backlog": 0,
+     "final_battery": 15.6,
+     "crit_total": 9,
+     "crit_delivered": 5,
+     "crit_latency": 41.4,
+     "high_latency": 11.8,
+     "reasons": {
+      "DOZE_ENTERED": 3,
+      "DOZE": 14,
+      "NETWORK_LOST": 3,
+      "NETWORK": 25,
+      "EXPIRED": 38
+     },
+     "uploads_after_revoke": 0
+    },
+    "V2": {
+     "enqueued": 60,
+     "deferred": 44,
+     "cancelled": 35,
+     "success": 25,
+     "peak": 3,
+     "notifications": 9,
+     "wasted_kb": 833,
+     "retries": 3,
+     "cleanups": 35,
+     "plaintext_uploads": 0,
+     "sent_kb": 17343,
+     "backlog": 0,
+     "final_battery": 16.0,
+     "crit_total": 9,
+     "crit_delivered": 9,
+     "crit_latency": 6.2,
+     "high_latency": 44.5,
+     "reasons": {
+      "WAIT_GOOD_LINK": 41,
+      "DOZE_ENTERED": 3,
+      "EXPIRED": 35
+     },
+     "uploads_after_revoke": 0
+    }
+   },
+   "C_kb": 38865,
+   "A": {
+    "V1": {
+     "enqueued": 60,
+     "deferred": 0,
+     "cancelled": 0,
+     "success": 60,
+     "peak": 3,
+     "notifications": 10,
+     "wasted_kb": 0,
+     "retries": 0,
+     "cleanups": 0,
+     "plaintext_uploads": 0,
+     "sent_kb": 3112,
+     "backlog": 0,
+     "final_battery": 28.0,
+     "crit_total": 10,
+     "crit_delivered": 10,
+     "crit_latency": 1.4,
+     "high_latency": 1.4,
+     "reasons": {},
+     "uploads_after_revoke": 0
+    },
+    "V2": {
+     "enqueued": 60,
+     "deferred": 0,
+     "cancelled": 0,
+     "success": 60,
+     "peak": 3,
+     "notifications": 10,
+     "wasted_kb": 0,
+     "retries": 0,
+     "cleanups": 0,
+     "plaintext_uploads": 0,
+     "sent_kb": 3112,
+     "backlog": 0,
+     "final_battery": 28.0,
+     "crit_total": 10,
+     "crit_delivered": 10,
+     "crit_latency": 1.0,
+     "high_latency": 1.0,
+     "reasons": {},
+     "uploads_after_revoke": 0
+    }
+   },
+   "B": {
+    "V1": {
+     "enqueued": 60,
+     "deferred": 62,
+     "cancelled": 34,
+     "success": 20,
+     "peak": 3,
+     "notifications": 9,
+     "wasted_kb": 1233,
+     "retries": 6,
+     "cleanups": 34,
+     "plaintext_uploads": 0,
+     "sent_kb": 14635,
+     "backlog": 6,
+     "final_battery": 17.3,
+     "crit_total": 9,
+     "crit_delivered": 4,
+     "crit_latency": 33.8,
+     "high_latency": 50.0,
+     "reasons": {
+      "DOZE": 16,
+      "NETWORK_LOST": 6,
+      "NETWORK": 40,
+      "EXPIRED": 34
+     },
+     "uploads_after_revoke": 0
+    },
+    "V2": {
+     "enqueued": 60,
+     "deferred": 60,
+     "cancelled": 33,
+     "success": 21,
+     "peak": 3,
+     "notifications": 9,
+     "wasted_kb": 966,
+     "retries": 6,
+     "cleanups": 33,
+     "plaintext_uploads": 0,
+     "sent_kb": 15288,
+     "backlog": 6,
+     "final_battery": 16.8,
+     "crit_total": 9,
+     "crit_delivered": 9,
+     "crit_latency": 28.3,
+     "high_latency": 59.4,
+     "reasons": {
+      "DOZE": 16,
+      "NETWORK_LOST": 6,
+      "NETWORK": 38,
+      "EXPIRED": 33
+     },
+     "uploads_after_revoke": 0
+    }
+   },
+   "A_kb": 3112,
+   "B_kb": 39840
+  }
+ },
+ "b3": {
+  "small": [
+   {
+    "seed": 1,
+    "base": [
+     10,
+     28,
+     6,
+     14,
+     6
+    ],
+    "exact": 16.953,
+    "approx": 16.953,
+    "match": true,
+    "ecfg": [
+     [
+      2,
+      0,
+      2,
+      2,
+      2
+     ],
+     3,
+     0
+    ],
+    "acfg": [
+     [
+      2,
+      0,
+      2,
+      2,
+      2
+     ],
+     3,
+     0
+    ]
+   },
+   {
+    "seed": 2,
+    "base": [
+     6,
+     6,
+     6,
+     14,
+     10
+    ],
+    "exact": 11.672,
+    "approx": 11.672,
+    "match": true,
+    "ecfg": [
+     [
+      2,
+      2,
+      2,
+      1,
+      2
+     ],
+     2,
+     0
+    ],
+    "acfg": [
+     [
+      2,
+      2,
+      2,
+      1,
+      2
+     ],
+     2,
+     0
+    ]
+   },
+   {
+    "seed": 3,
+    "base": [
+     10,
+     28,
+     28,
+     10,
+     14
+    ],
+    "exact": 21.957,
+    "approx": 22.332,
+    "match": false,
+    "ecfg": [
+     [
+      2,
+      1,
+      1,
+      2,
+      2
+     ],
+     3,
+     1
+    ],
+    "acfg": [
+     [
+      2,
+      1,
+      1,
+      2,
+      2
+     ],
+     4,
+     0
+    ]
+   },
+   {
+    "seed": 4,
+    "base": [
+     10,
+     14,
+     6,
+     36,
+     20
+    ],
+    "exact": 20.513,
+    "approx": 21.573,
+    "match": false,
+    "ecfg": [
+     [
+      2,
+      2,
+      2,
+      0,
+      1
+     ],
+     3,
+     0
+    ],
+    "acfg": [
+     [
+      2,
+      2,
+      2,
+      1,
+      1
+     ],
+     4,
+     0
+    ]
+   },
+   {
+    "seed": 5,
+    "base": [
+     28,
+     14,
+     36,
+     14,
+     36
+    ],
+    "exact": 27.933,
+    "approx": 27.933,
+    "match": true,
+    "ecfg": [
+     [
+      1,
+      2,
+      1,
+      2,
+      1
+     ],
+     4,
+     0
+    ],
+    "acfg": [
+     [
+      1,
+      2,
+      1,
+      2,
+      1
+     ],
+     4,
+     0
+    ]
+   },
+   {
+    "seed": 6,
+    "base": [
+     28,
+     6,
+     20,
+     14,
+     6
+    ],
+    "exact": 19.353,
+    "approx": 19.353,
+    "match": true,
+    "ecfg": [
+     [
+      0,
+      2,
+      1,
+      2,
+      2
+     ],
+     3,
+     0
+    ],
+    "acfg": [
+     [
+      0,
+      2,
+      1,
+      2,
+      2
+     ],
+     3,
+     0
+    ]
+   }
+  ],
+  "counter": {
+   "seed": 4,
+   "base": [
+    10,
+    14,
+    6,
+    36,
+    20
+   ],
+   "exact": 20.513,
+   "approx": 21.573,
+   "gap": 1.06,
+   "ecfg": [
+    [
+     2,
+     2,
+     2,
+     0,
+     1
+    ],
+    3,
+    0
+   ],
+   "acfg": [
+    [
+     2,
+     2,
+     2,
+     1,
+     1
+    ],
+    4,
+    0
+   ],
+   "trace": [
+    [
+     1,
+     "('q', 3, 1)",
+     34.856
+    ],
+    [
+     2,
+     "('c', 2)",
+     26.648
+    ],
+    [
+     3,
+     "('c', 3)",
+     21.673
+    ],
+    [
+     4,
+     "('q', 4, 1)",
+     21.573
+    ]
+   ]
+  },
+  "mismatch_rate": [
+   22,
+   79
+  ],
+  "gap_pct": {
+   "mean": 2.8,
+   "max": 5.2
+  },
+  "scale": [
+   {
+    "n": 4,
+    "Q": 3,
+    "exact_evals": 1620,
+    "exact_cost": 13.99,
+    "exact_time": 0.01,
+    "exact_evict": 6,
+    "ad_evals": 23,
+    "ad_cost": 13.99,
+    "ad_time": 0.0,
+    "ad_qchg": 2,
+    "ad_cchg": 0,
+    "ad_pchg": 0,
+    "ad_iters": 3,
+    "ad_evict": 6
+   },
+   {
+    "n": 6,
+    "Q": 3,
+    "exact_evals": 14580,
+    "exact_cost": 30.71,
+    "exact_time": 0.08,
+    "exact_evict": 6,
+    "ad_evals": 61,
+    "ad_cost": 30.71,
+    "ad_time": 0.0,
+    "ad_qchg": 3,
+    "ad_cchg": 2,
+    "ad_pchg": 0,
+    "ad_iters": 6,
+    "ad_evict": 6
+   },
+   {
+    "n": 8,
+    "Q": 3,
+    "exact_evals": 131220,
+    "exact_cost": 37.58,
+    "exact_time": 0.87,
+    "exact_evict": 8,
+    "ad_evals": 94,
+    "ad_cost": 37.58,
+    "ad_time": 0.0,
+    "ad_qchg": 3,
+    "ad_cchg": 4,
+    "ad_pchg": 0,
+    "ad_iters": 8,
+    "ad_evict": 8
+   },
+   {
+    "n": 10,
+    "Q": 3,
+    "exact_evals": 1180980,
+    "exact_cost": 51.05,
+    "exact_time": 9.64,
+    "exact_evict": 10,
+    "ad_evals": 145,
+    "ad_cost": 51.05,
+    "ad_time": 0.0,
+    "ad_qchg": 5,
+    "ad_cchg": 4,
+    "ad_pchg": 0,
+    "ad_iters": 10,
+    "ad_evict": 10
+   },
+   {
+    "n": 8,
+    "Q": 4,
+    "exact_evals": 1310720,
+    "exact_cost": 61.29,
+    "exact_time": 8.94,
+    "exact_evict": 8,
+    "ad_evals": 229,
+    "ad_cost": 61.29,
+    "ad_time": 0.0,
+    "ad_qchg": 11,
+    "ad_cchg": 4,
+    "ad_pchg": 0,
+    "ad_iters": 16,
+    "ad_evict": 8
+   },
+   {
+    "n": 50,
+    "Q": 4,
+    "exact_evals": null,
+    "exact_cost": null,
+    "exact_time": null,
+    "exact_evict": null,
+    "exact_evals_str": "about 10^31",
+    "ad_evals": 5721,
+    "ad_cost": 333.54,
+    "ad_time": 0.02,
+    "ad_qchg": 65,
+    "ad_cchg": 4,
+    "ad_pchg": 0,
+    "ad_iters": 70,
+    "ad_evict": 50
+   },
+   {
+    "n": 200,
+    "Q": 6,
+    "exact_evals": null,
+    "exact_cost": null,
+    "exact_time": null,
+    "exact_evict": null,
+    "exact_evals_str": "about 10^157",
+    "ad_evals": 255977,
+    "ad_cost": 2510.06,
+    "ad_time": 0.99,
+    "ad_qchg": 675,
+    "ad_cchg": 4,
+    "ad_pchg": 4,
+    "ad_iters": 684,
+    "ad_evict": 200
+   },
+   {
+    "n": 500,
+    "Q": 6,
+    "exact_evals": null,
+    "exact_cost": null,
+    "exact_time": null,
+    "exact_evict": null,
+    "exact_evals_str": "about 10^390",
+    "ad_evals": 1612815,
+    "ad_cost": 6348.81,
+    "ad_time": 6.17,
+    "ad_qchg": 1723,
+    "ad_cchg": 4,
+    "ad_pchg": 4,
+    "ad_iters": 1732,
+    "ad_evict": 500
+   }
+  ]
+ },
+ "b4": [
+  {
+   "name": "Flagship-WiFi",
+   "res": "1080p",
+   "timing": "wait_wifi",
+   "enc_t": 11.0,
+   "up_t": 0.9,
+   "total_t": 11.9,
+   "energy_j": 28.2,
+   "batt_pct": 0.046,
+   "batt_after": 79.95,
+   "utility": 27.66,
+   "best_res": "1080p",
+   "best_timing": "wait_wifi",
+   "best_utility": 27.66
+  },
+  {
+   "name": "Mid-range-4G",
+   "res": "720p",
+   "timing": "now",
+   "enc_t": 9.4,
+   "up_t": 4.7,
+   "total_t": 14.1,
+   "energy_j": 26.2,
+   "batt_pct": 0.049,
+   "batt_after": 54.95,
+   "utility": 11.68,
+   "best_res": "1080p",
+   "best_timing": "now",
+   "best_utility": 13.0
+  },
+  {
+   "name": "Low-end-3G",
+   "res": "720p",
+   "timing": "now",
+   "enc_t": 21.4,
+   "up_t": 18.8,
+   "total_t": 40.2,
+   "energy_j": 68.0,
+   "batt_pct": 0.172,
+   "batt_after": 39.83,
+   "utility": 6.29,
+   "best_res": "720p",
+   "best_timing": "now",
+   "best_utility": 6.29
+  },
+  {
+   "name": "Low-battery",
+   "res": "480p",
+   "timing": "now",
+   "enc_t": 4.5,
+   "up_t": 1.0,
+   "total_t": 5.5,
+   "energy_j": 11.4,
+   "batt_pct": 0.021,
+   "batt_after": 11.98,
+   "utility": 7.15,
+   "best_res": "1080p",
+   "best_timing": "now",
+   "best_utility": 18.99
+  },
+  {
+   "name": "Charging-4G",
+   "res": "1080p",
+   "timing": "now",
+   "enc_t": 15.0,
+   "up_t": 6.2,
+   "total_t": 21.2,
+   "energy_j": 43.9,
+   "batt_pct": 0.076,
+   "batt_after": 21.92,
+   "utility": 25.9,
+   "best_res": "1080p",
+   "best_timing": "now",
+   "best_utility": 25.9
+  }
+ ],
+ "b4study": {
+  "n": 2000,
+  "same": 1209,
+  "mean_loss": 4.06,
+  "worst": [
+   16.585416666666667,
+   {
+    "name": "rnd1973",
+    "cpu": 3.2,
+    "cpu_w": 1.5,
+    "battery": 8,
+    "charging": false,
+    "cap_wh": 16,
+    "net_mbps": 60,
+    "wifi_mbps": 40,
+    "wifi_avail": true,
+    "radio_w": 1.6,
+    "metered": false,
+    "wifi_wait_s": 1800,
+    "deadline_s": 90
+   },
+   [
+    "480p",
+    "wait_wifi"
+   ],
+   [
+    "1080p",
+    "now"
+   ],
+   8.77,
+   25.35
+  ]
+ }
+}
