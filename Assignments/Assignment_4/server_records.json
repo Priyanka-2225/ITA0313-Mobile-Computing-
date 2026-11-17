@@ -1,0 +1,38 @@
+[
+  {
+    "record_id": "FT-1001",
+    "user_id": "EMP-101",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-11-16T03:58:55+00:00",
+    "battery": 65,
+    "sync_status": "SYNCED"
+  },
+  {
+    "record_id": "FT-1002",
+    "user_id": "EMP-101",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-11-16T03:58:55+00:00",
+    "battery": 35,
+    "sync_status": "SYNCED"
+  },
+  {
+    "record_id": "FT-1003",
+    "user_id": "EMP-101",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-11-16T03:58:55+00:00",
+    "battery": 12,
+    "sync_status": "SYNCED"
+  },
+  {
+    "record_id": "FT-1004",
+    "user_id": "EMP-101",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "timestamp": "2026-11-16T03:58:55+00:00",
+    "battery": 78,
+    "sync_status": "SYNCED"
+  }
+]

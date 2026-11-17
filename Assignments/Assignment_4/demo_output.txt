@@ -1,0 +1,30 @@
+BATTERY-AWARE SECURE FIELD-TRACKING PROTOTYPE
+================================================
+
+Record FT-1001: battery=65%, state=NORMAL
+Policy: normal tracking and synchronization when online.
+Saved locally: FT-1001 (PENDING)
+Synchronization complete: 1 uploaded, 0 duplicate(s) skipped.
+
+Record FT-1002: battery=35%, state=LOW BATTERY
+Policy: batch uploads and reduce background activity.
+Saved locally: FT-1002 (PENDING)
+Network unavailable. Records remain safely pending.
+
+Record FT-1003: battery=12%, state=CRITICAL BATTERY
+Policy: reduce nonessential tracking; preserve essential data.
+Saved locally: FT-1003 (PENDING)
+Network unavailable. Records remain safely pending.
+
+Record FT-1004: battery=78%, state=CHARGING
+Policy: pending synchronization is allowed.
+Saved locally: FT-1004 (PENDING)
+Synchronization complete: 3 uploaded, 0 duplicate(s) skipped.
+
+Duplicate-upload check
+Synchronization complete: 0 uploaded, 1 duplicate(s) skipped.
+
+Final server record count: 4
+Remaining pending record count: 0
+
+NOTE: This is a local simulation with sample data, not live GPS/device data.
